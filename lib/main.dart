@@ -6,7 +6,7 @@ import 'package:http/http.dart' as http;
 import 'package:mplushsoftproject/user_model.dart';
 main(){
   runApp(
-new MyApp()
+MyApp()
   );
 }
 class MyApp extends StatelessWidget{
@@ -73,7 +73,13 @@ class MyExampleClass extends StatelessWidget{
 
             }else if(snapshot.hasError){
 
-            return Text(snapshot.error.toString());
+            return Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: const [
+                Icon(Icons.signal_cellular_connected_no_internet_4_bar_sharp,size: 50,),
+                Text("Please Check Your Internet Connection",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.red),)
+              ],
+            );
             }
             return CircularProgressIndicator();
           },
